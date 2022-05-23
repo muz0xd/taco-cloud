@@ -48,6 +48,15 @@ public class DesignTacoController {
 		return "design";
 	}
 	
+	@PostMapping
+	public String processDesign (Taco design) {
+		// Save the taco design ...
+		// We'll do this in project 3 (ch - Working with data)
+		
+		log.info("Processing design: " + design);
+		return "redirect:/orders/current";
+	}
+	
 	private List<Ingredient> filterByType(
 			List<Ingredient> ingredients, Type type) {
 		return ingredients
