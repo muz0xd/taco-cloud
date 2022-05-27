@@ -24,32 +24,41 @@ import tacos.Taco;
 @RequestMapping("/design")
 public class DesignTacoController {
 	
-	@GetMapping
-	public String showDesignForm(Model model) {
-		List<Ingredient> ingredients = Arrays.asList(
-			new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
-			new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
-			new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
-			new Ingredient("CARN", "Carnitas", Type.PROTEIN),
-			new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
-			new Ingredient("LETC", "Lettuce", Type.VEGGIES),
-			new Ingredient("CHED", "Cheddar", Type.CHEESE),
-			new Ingredient("JACK", "Monterrey Jack", Type.CHEESE),
-			new Ingredient("SLSA", "Salsa", Type.SAUCE),
-			new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
-		);
-		
-		Type[] types = Ingredient.Type.values();
-		for (Type type : types) {
-			model.addAttribute(type.toString().toLowerCase(),
-					filterByType(ingredients, type));
-		}
-		model.addAttribute("design", new Taco());
-		return "design";
+
+@ModelAttribute
+public void addIngredientsToModel(Model model) {
+	List<Ingredient> ingredients = Arrays.asList(
+	  new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
+	  new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
+	  new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
+	  new Ingredient("CARN", "Carnitas", Type.PROTEIN),
+	  new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
+	  new Ingredient("LETC", "Lettuce", Type.VEGGIES),
+	  new Ingredient("CHED", "Cheddar", Type.CHEESE),
+	  new Ingredient("JACK", "Monterrey Jack", Type.CHEESE),
+	  new Ingredient("SLSA", "Salsa", Type.SAUCE),
+	  new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
+	);
+	
+	Type[] types = Ingredient.Type.values();
+	for (Type type : types) {
+	  model.addAttribute(type.toString().toLowerCase(),
+	      filterByType(ingredients, type));
 	}
+}
+	
+//tag::showDesignForm[]
+  @GetMapping
+  public String showDesignForm(Model model) {
+    model.addAttribute("design", new Taco());
+    return "design";
+  }
 	
 	@PostMapping
-	public String processDesign (Taco design) {
+	public String processDesign (@Valid @ModelAttribute("design") Taco design, Errors errors, Model model) {
+		if (errors.hasErrors()) {
+			return "design";
+		}
 		// Save the taco design ...
 		// We'll do this in project 3 (ch - Working with data)
 		
