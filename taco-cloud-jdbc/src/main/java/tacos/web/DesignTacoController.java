@@ -79,6 +79,8 @@ public class DesignTacoController {
 
 		Taco saved = designRepo.save(design);
 		order.addDesign(saved);
+		
+		//order.setName(""); //patch: don't know why name from taco bound to order name, why!?
 
 		return "redirect:/orders/current";
 	}

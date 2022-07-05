@@ -149,9 +149,9 @@ public class DesignAndOrderTacoBrowserTest {
     assertEquals(orderDetailsPageUrl(), browser.getCurrentUrl());
 
     List<String> validationErrors = getValidationErrorTexts();
-    assertEquals(/*9*/ 8, validationErrors.size());
+    assertEquals(9, validationErrors.size());
     assertTrue(validationErrors.contains("Please correct the problems below and resubmit."));
-    //assertTrue(validationErrors.contains("Name is required"));
+    assertTrue(validationErrors.contains("Name is required"));
     assertTrue(validationErrors.contains("Street is required"));
     assertTrue(validationErrors.contains("City is required"));
     assertTrue(validationErrors.contains("State is required"));
