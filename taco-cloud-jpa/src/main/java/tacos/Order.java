@@ -36,16 +36,16 @@ public class Order implements Serializable {
 	private String Name;
   
 	@NotBlank(message="Street is required")
-	private String deliveryStreet;
+	private String street;
   
 	@NotBlank(message="City is required")
-	private String deliveryCity;
+	private String city;
   
 	@NotBlank(message="State is required")
-	private String deliveryState;
+	private String state;
   
 	@NotBlank(message="Zip code is required")
-	private String deliveryZip;
+	private String zip;
 
 	@CreditCardNumber(message="Not a valid credit card number")
 	private String ccNumber;
