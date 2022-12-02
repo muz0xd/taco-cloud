@@ -21,7 +21,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         .authorities("ROLE_USER")
         .and()
         .withUser("woody")
-        .password("{noop}bullseye")
+        .password("{sha256}97cde38028ad898ebc02e690819fa220e88c62e0"
+                + "699403e94fff291cfffaf8410849f27605abcbc0") // "password" encoded with sha256
         .authorities("ROLE_USER");
     }
 }
