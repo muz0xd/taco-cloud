@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         auth
         .inMemoryAuthentication()
         .withUser("buzz")
-        .password("{noop}infinity")
+        .password("{noop}infinity") // Password Storage Format {id}encodedPassword: this id delegate to NoOpPasswordEncoder
         .authorities("ROLE_USER")
         .and()
         .withUser("woody")
