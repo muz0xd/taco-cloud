@@ -1,5 +1,8 @@
 package tacos.security;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -30,5 +33,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         .authorities("ROLE_USER");
     }
     */
-      
+
+//
+//  JDBC AUTHENTICATION
+//
+    @Autowired
+    DataSource dataSource;
+    
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) 
+            throws Exception {
+        auth
+        .jdbcAuthentication()
+        .dataSource(dataSource);
+    }
 }
