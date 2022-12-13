@@ -11,6 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
+//
+//  IN MEMORY AUTHENTICATION
+//
+    /*
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
@@ -25,4 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 + "699403e94fff291cfffaf8410849f27605abcbc0") // "password" encoded with sha256
         .authorities("ROLE_USER");
     }
+    */
+      
 }
