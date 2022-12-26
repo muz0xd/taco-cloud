@@ -24,16 +24,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     
     @Bean
     public PasswordEncoder encoder() {
-      return new StandardPasswordEncoder("53cr3t");
+        return new StandardPasswordEncoder("53cr3t");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http
         .authorizeRequests()
-          .antMatchers("/design", "/orders")
-            .access("hasRole('ROLE_USER')")
-          .antMatchers("/", "/**").access("permitAll");
+            .antMatchers("/design", "/orders")
+                .access("hasRole('ROLE_USER')")
+            .antMatchers("/", "/**").access("permitAll")
+        .and()
+            .formLogin()
+                .loginPage("login")
+        ;
     }
     
     @Override
