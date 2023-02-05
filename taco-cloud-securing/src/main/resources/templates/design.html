@@ -7,13 +7,13 @@
   </head>
 
   <body>
-    <form method="POST" th:action="@{/logout}">
+    <form method="POST" th:action="@{/logout}" id="logoutForm">
       <input type="submit" value="Logout"/>
     </form>
     <h1>Design your taco!</h1>
     <img th:src="@{/images/TacoCloud.png}"/>
 
-    <form method="POST" th:object="${taco}">
+    <form method="POST" id="tacoForm" th:action="@{/design}" th:object="${taco}">
 
 
     <span class="validationError"
