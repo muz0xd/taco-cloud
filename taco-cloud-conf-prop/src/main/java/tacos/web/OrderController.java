@@ -22,9 +22,12 @@ import tacos.data.OrderRepository;
 public class OrderController {
 	  
 	private OrderRepository orderRepo;
+	
+	private OrderProps props;
 
-	public OrderController(OrderRepository orderRepo) {
+	public OrderController(OrderRepository orderRepo, OrderProps props) {
 		this.orderRepo = orderRepo;
+		this.props = props;
 	}
   
 	@GetMapping("/current")
