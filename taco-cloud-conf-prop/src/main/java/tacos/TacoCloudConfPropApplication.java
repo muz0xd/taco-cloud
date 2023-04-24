@@ -4,9 +4,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import tacos.Ingredient.Type;
 import tacos.data.IngredientRepository;
+import tacos.data.UserRepository;
 
 @SpringBootApplication
 public class TacoCloudConfPropApplication {
@@ -16,7 +18,8 @@ public class TacoCloudConfPropApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner dataLoader(IngredientRepository repo) {
+	public CommandLineRunner dataLoader(IngredientRepository repo,
+	        UserRepository userRepo, PasswordEncoder encoder) {
 	    return new CommandLineRunner() {
 	        @Override
 	        public void run(String... args) throws Exception {
@@ -30,6 +33,10 @@ public class TacoCloudConfPropApplication {
 	            repo.save(new Ingredient("JACK", "Monterrey Jack", Type.CHEESE));
 	            repo.save(new Ingredient("SLSA", "Salsa", Type.SAUCE));
 	            repo.save(new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
+	            
+	            userRepo.save(new User("user", encoder.encode("password"), 
+	                    "Default User", "123 North Street", "Cross Roads", "TX", 
+	                    "76227", "123-123-1234"));
 	        }
 	    };
 	}
