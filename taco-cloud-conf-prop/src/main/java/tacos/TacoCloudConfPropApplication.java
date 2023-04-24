@@ -23,6 +23,9 @@ public class TacoCloudConfPropApplication {
 	    return new CommandLineRunner() {
 	        @Override
 	        public void run(String... args) throws Exception {
+	            repo.deleteAll();
+	            userRepo.deleteAll();
+	            
 	            repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
 	            repo.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
 	            repo.save(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
