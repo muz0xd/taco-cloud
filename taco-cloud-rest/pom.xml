@@ -12,6 +12,7 @@
 	<artifactId>taco-cloud-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>taco-cloud-rest</name>
+	<packaging>pom</packaging>
 	<description>Taco Cloud REST</description>
 	<properties>
 		<java.version>17</java.version>
