@@ -13,17 +13,19 @@
 
 	<groupId>sia</groupId>
 	<artifactId>taco-cloud-rest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.7-SNAPSHOT</version>
 	<name>taco-cloud-rest</name>
 	<packaging>pom</packaging>
 	<description>Taco Cloud REST</description>
 
 	<properties>
 		<java.version>17</java.version>
+		<tacocloud.version>${project.version}</tacocloud.version>
 	</properties>
 
 	<modules>
 		<module>tacocloud-domain</module>
+		<module>tacocloud-data</module>
 	</modules>
 
 	<repositories>
