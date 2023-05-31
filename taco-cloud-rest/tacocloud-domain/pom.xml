@@ -5,9 +5,12 @@
 	<parent>
 		<groupId>sia</groupId>
 		<artifactId>taco-cloud-rest</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.7-SNAPSHOT</version>
 	</parent>
 	<artifactId>tacocloud-domain</artifactId>
+	<name>tacocloud-domain</name>
+	<packaging>jar</packaging>
+	 
 	<dependencies>
 		<!-- Necessary Boot starters -->
 		<dependency>
