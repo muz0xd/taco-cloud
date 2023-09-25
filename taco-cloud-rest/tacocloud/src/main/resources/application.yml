@@ -33,9 +33,6 @@ spring:
   config:
     activate:
       on-profile: prod
-  profiles:
-    active:
-    - dev
 
 logging:
   level:
