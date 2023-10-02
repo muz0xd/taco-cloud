@@ -28,6 +28,7 @@
 		<module>tacocloud-data</module>
 		<module>tacocloud</module>
 		<module>tacocloud-api</module>
+		<module>taco-security</module>
 	</modules>
 
 	<repositories>
