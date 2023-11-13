@@ -1,9 +1,12 @@
 package tacos.web.api;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +28,11 @@ public class IngredientController {
   @GetMapping
   public Iterable<Ingredient> allIngredients() {
     return repo.findAll();
+  }
+  
+  @GetMapping("/{id}")
+  public Optional<Ingredient> IngredientById(@PathVariable("id") String id) {
+    return repo.findById(id);
   }
 
 }
