@@ -10,12 +10,12 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 import tacos.Ingredient;
 import tacos.Taco;
 
 @Service
-@Slf4j
+//@Slf4j - don't used
 public class TacoCloudClient {
 
   private RestTemplate rest;
