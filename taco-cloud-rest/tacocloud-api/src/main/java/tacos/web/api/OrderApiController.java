@@ -18,74 +18,71 @@ import tacos.TacoOrder;
 import tacos.data.OrderRepository;
 
 @RestController
-@RequestMapping(path="/api/orders",
-                produces="application/json")
-@CrossOrigin(origins="http://tacocloud:8080")
+@RequestMapping(path = "/api/orders", produces = "application/json")
+@CrossOrigin(origins = "http://tacocloud:8080")
 public class OrderApiController {
 
-  private OrderRepository repo;
+    private OrderRepository repo;
 
-  public OrderApiController(OrderRepository repo) {
-    this.repo = repo;
-  }
+    public OrderApiController(OrderRepository repo) {
+        this.repo = repo;
+    }
 
-  @GetMapping(produces="application/json")
-  public Iterable<TacoOrder> allOrders() {
-    return repo.findAll();
-  }
+    @GetMapping(produces = "application/json")
+    public Iterable<TacoOrder> allOrders() {
+        return repo.findAll();
+    }
 
-  @PostMapping(consumes="application/json")
-  @ResponseStatus(HttpStatus.CREATED)
-  public TacoOrder postOrder(@RequestBody TacoOrder order) {
-    return repo.save(order);
-  }
+    @PostMapping(consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public TacoOrder postOrder(@RequestBody TacoOrder order) {
+        return repo.save(order);
+    }
 
-  @PutMapping(path="/{orderId}", consumes="application/json")
-  public TacoOrder putOrder(
-                        @PathVariable("orderId") Long orderId,
-                        @RequestBody TacoOrder order) {
-    order.setId(orderId);
-    return repo.save(order);
-  }
+    @PutMapping(path = "/{orderId}", consumes = "application/json")
+    public TacoOrder putOrder(@PathVariable("orderId") Long orderId, @RequestBody TacoOrder order) {
+        order.setId(orderId);
+        return repo.save(order);
+    }
 
-  @PatchMapping(path="/{orderId}", consumes="application/json")
-  public TacoOrder patchOrder(@PathVariable("orderId") Long orderId,
-                          @RequestBody TacoOrder patch) {
+    @PatchMapping(path = "/{orderId}", consumes = "application/json")
+    public TacoOrder patchOrder(@PathVariable("orderId") Long orderId, @RequestBody TacoOrder patch) {
 
-    TacoOrder order = repo.findById(orderId).get();
-    if (patch.getName() != null) {
-      order.setName(patch.getName());
+        TacoOrder order = repo.findById(orderId).get();
+        if (patch.getName() != null) {
+            order.setName(patch.getName());
+        }
+        if (patch.getStreet() != null) {
+            order.setStreet(patch.getStreet());
+        }
+        if (patch.getCity() != null) {
+            order.setCity(patch.getCity());
+        }
+        if (patch.getState() != null) {
+            order.setState(patch.getState());
+        }
+        if (patch.getZip() != null) {
+            order.setZip(patch.getZip());
+        }
+        if (patch.getCcNumber() != null) {
+            order.setCcNumber(patch.getCcNumber());
+        }
+        if (patch.getCcExpiration() != null) {
+            order.setCcExpiration(patch.getCcExpiration());
+        }
+        if (patch.getCcCVV() != null) {
+            order.setCcCVV(patch.getCcCVV());
+        }
+        return repo.save(order);
     }
-    if (patch.getStreet() != null) {
-      order.setStreet(patch.getStreet());
-    }
-    if (patch.getCity() != null) {
-      order.setCity(patch.getCity());
-    }
-    if (patch.getState() != null) {
-      order.setState(patch.getState());
-    }
-    if (patch.getZip() != null) {
-      order.setZip(patch.getZip());
-    }
-    if (patch.getCcNumber() != null) {
-      order.setCcNumber(patch.getCcNumber());
-    }
-    if (patch.getCcExpiration() != null) {
-      order.setCcExpiration(patch.getCcExpiration());
-    }
-    if (patch.getCcCVV() != null) {
-      order.setCcCVV(patch.getCcCVV());
-    }
-    return repo.save(order);
-  }
 
-  @DeleteMapping("/{orderId}")
-  @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void deleteOrder(@PathVariable("orderId") Long orderId) {
-    try {
-      repo.deleteById(orderId);
-    } catch (EmptyResultDataAccessException e) {}
-  }
+    @DeleteMapping("/{orderId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteOrder(@PathVariable("orderId") Long orderId) {
+        try {
+            repo.deleteById(orderId);
+        } catch (EmptyResultDataAccessException e) {
+        }
+    }
 
 }
