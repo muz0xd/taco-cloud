@@ -18,6 +18,20 @@ After building:
 $ java -jar tacocloud/target/taco-cloud-0.0.7-SNAPSHOT.jar
 ----
 
+== For Eclipse (Run Configurations):
+
+-----------
+Maven Build
+Base Directory - ${project_loc:taco-cloud-rest}
+Goals - package
+
+Then
+
+Spring Boot App
+Project - tacocloud
+Main Type - tacos.TacoCloudApplication
+----------
+
 Once the application is running, you can poke at the API using `curl` like this:
 
 Fetch a list of ingredients:
