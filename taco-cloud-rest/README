@@ -30,6 +30,7 @@ Then
 Spring Boot App
 Project - tacocloud
 Main Type - tacos.TacoCloudApplication
+Profile - dev
 ----------
 
 Once the application is running, you can poke at the API using `curl` like this:
