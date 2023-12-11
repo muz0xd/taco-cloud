@@ -45,17 +45,17 @@ public class RestExamples {
     };
   }
 
-//  @Bean
-//  public CommandLineRunner putAnIngredient(TacoCloudClient tacoCloudClient) {
-//    return args -> {
-//      log.info("----------------------- PUT -------------------------");
-//      Ingredient before = tacoCloudClient.getIngredientById("LETC");
-//      log.info("BEFORE:  " + before);
-//      tacoCloudClient.updateIngredient(new Ingredient("LETC", "Shredded Lettuce", Ingredient.Type.VEGGIES));
-//      Ingredient after = tacoCloudClient.getIngredientById("LETC");
-//      log.info("AFTER:  " + after);
-//    };
-//  }
+  @Bean
+  public CommandLineRunner putAnIngredient(TacoCloudClient tacoCloudClient) {
+    return args -> {
+      log.info("----------------------- PUT -------------------------");
+      Ingredient before = tacoCloudClient.getIngredientById("LETC");
+      log.info("BEFORE:  " + before);
+      tacoCloudClient.updateIngredient(new Ingredient("LETC", "Shredded Lettuce", Ingredient.Type.VEGGIES));
+      Ingredient after = tacoCloudClient.getIngredientById("LETC");
+      log.info("AFTER:  " + after);
+    };
+  }
 
   @Bean
   public CommandLineRunner addAnIngredient(TacoCloudClient tacoCloudClient) {
@@ -64,12 +64,12 @@ public class RestExamples {
       Ingredient chix = new Ingredient("CHIX", "Shredded Chicken", Ingredient.Type.PROTEIN);
       Ingredient chixAfter = tacoCloudClient.createIngredient(chix);
       log.info("AFTER=1:  " + chixAfter);
-      Ingredient beefFajita = new Ingredient("BFFJ", "Beef Fajita", Ingredient.Type.PROTEIN);
-      Ingredient beefFajitaAfter = tacoCloudClient.createIngredient(beefFajita);
-      log.info("AFTER-2:  " + beefFajitaAfter);
-      Ingredient shrimp = new Ingredient("SHMP", "Shrimp", Ingredient.Type.PROTEIN);
-      Ingredient shrimpAfter = tacoCloudClient.createIngredient(shrimp);
-      log.info("AFTER-3:  " + shrimpAfter);
+//      Ingredient beefFajita = new Ingredient("BFFJ", "Beef Fajita", Ingredient.Type.PROTEIN);
+//      Ingredient beefFajitaAfter = tacoCloudClient.createIngredient(beefFajita);
+//      log.info("AFTER-2:  " + beefFajitaAfter);
+//      Ingredient shrimp = new Ingredient("SHMP", "Shrimp", Ingredient.Type.PROTEIN);
+//      Ingredient shrimpAfter = tacoCloudClient.createIngredient(shrimp);
+//      log.info("AFTER-3:  " + shrimpAfter);
     };
   }
 
@@ -85,15 +85,15 @@ public class RestExamples {
       tacoCloudClient.createIngredient(shrimp);
 
 
-//      Ingredient before = tacoCloudClient.getIngredientById("CHIX");
-//      log.info("BEFORE:  " + before);
-//      tacoCloudClient.deleteIngredient(before);
-//      Ingredient after = tacoCloudClient.getIngredientById("CHIX");
-//      log.info("AFTER:  " + after);
-      Ingredient before = tacoCloudClient.getIngredientById("BFFJ");
+      Ingredient before = tacoCloudClient.getIngredientById("CHIX");
       log.info("BEFORE:  " + before);
       tacoCloudClient.deleteIngredient(before);
-      Ingredient after = tacoCloudClient.getIngredientById("BFFJ");
+      Ingredient after = tacoCloudClient.getIngredientById("CHIX");
+      log.info("AFTER:  " + after);
+      before = tacoCloudClient.getIngredientById("BFFJ");
+      log.info("BEFORE:  " + before);
+      tacoCloudClient.deleteIngredient(before);
+      after = tacoCloudClient.getIngredientById("BFFJ");
       log.info("AFTER:  " + after);
       before = tacoCloudClient.getIngredientById("SHMP");
       log.info("BEFORE:  " + before);
