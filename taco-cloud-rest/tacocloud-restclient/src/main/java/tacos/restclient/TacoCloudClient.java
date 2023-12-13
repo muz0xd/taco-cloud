@@ -34,7 +34,7 @@ public class TacoCloudClient {
    * Specify parameter as varargs argument
    */
   public Ingredient getIngredientById(String ingredientId) {
-    return rest.getForObject("http://localhost:8080/data-api/ingredients/{id}",
+    return rest.getForObject("http://localhost:8080/api/ingredients/{id}",
                              Ingredient.class, ingredientId);
   }
 
