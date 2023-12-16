@@ -110,20 +110,20 @@ public class RestExamples {
   @Bean
   public Traverson traverson() {
     Traverson traverson = new Traverson(
-        URI.create("http://localhost:8080/api"), MediaTypes.HAL_JSON);
+        URI.create("http://localhost:8080/data-api"), MediaTypes.HAL_JSON);
     return traverson;
   }
 
-//  @Bean
-//  public CommandLineRunner traversonGetIngredients(TacoCloudClient tacoCloudClient) {
-//    return args -> {
-//      Iterable<Ingredient> ingredients = tacoCloudClient.getAllIngredientsWithTraverson();
-//      log.info("----------------------- GET INGREDIENTS WITH TRAVERSON -------------------------");
-//      for (Ingredient ingredient : ingredients) {
-//        log.info("   -  " + ingredient);
-//      }
-//    };
-//  }
+  @Bean
+  public CommandLineRunner traversonGetIngredients(TacoCloudClient tacoCloudClient) {
+    return args -> {
+      Iterable<Ingredient> ingredients = tacoCloudClient.getAllIngredientsWithTraverson();
+      log.info("----------------------- GET INGREDIENTS WITH TRAVERSON -------------------------");
+      for (Ingredient ingredient : ingredients) {
+        log.info("   -  " + ingredient);
+      }
+    };
+  }
 //
 //  @Bean
 //  public CommandLineRunner traversonSaveIngredient(TacoCloudClient tacoCloudClient) {
