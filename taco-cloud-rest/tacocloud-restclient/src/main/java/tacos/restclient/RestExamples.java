@@ -124,20 +124,20 @@ public class RestExamples {
       }
     };
   }
-//
-//  @Bean
-//  public CommandLineRunner traversonSaveIngredient(TacoCloudClient tacoCloudClient) {
-//    return args -> {
-//      Ingredient pico = tacoCloudClient.addIngredient(
-//          new Ingredient("PICO", "Pico de Gallo", Ingredient.Type.SAUCE));
-//      List<Ingredient> allIngredients = tacoCloudClient.getAllIngredients();
-//      log.info("----------------------- ALL INGREDIENTS AFTER SAVING PICO -------------------------");
-//      for (Ingredient ingredient : allIngredients) {
-//        log.info("   -  " + ingredient);
-//      }
-//      tacoCloudClient.deleteIngredient(pico);
-//    };
-//  }
+
+  @Bean
+  public CommandLineRunner traversonSaveIngredient(TacoCloudClient tacoCloudClient) {
+    return args -> {
+      Ingredient pico = tacoCloudClient.addIngredient(
+          new Ingredient("PICO", "Pico de Gallo", Ingredient.Type.SAUCE));
+      List<Ingredient> allIngredients = tacoCloudClient.getAllIngredients();
+      log.info("----------------------- ALL INGREDIENTS AFTER SAVING PICO -------------------------");
+      for (Ingredient ingredient : allIngredients) {
+        log.info("   -  " + ingredient);
+      }
+      tacoCloudClient.deleteIngredient(pico);
+    };
+  }
 //
 //  @Bean
 //  public CommandLineRunner traversonRecentTacos(TacoCloudClient tacoCloudClient) {
