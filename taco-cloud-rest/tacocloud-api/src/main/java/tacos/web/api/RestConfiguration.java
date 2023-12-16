@@ -6,6 +6,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import tacos.Ingredient;
+import tacos.Taco;
 
 @Configuration
 public class RestConfiguration implements RepositoryRestConfigurer {
@@ -14,5 +15,6 @@ public class RestConfiguration implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(
       RepositoryRestConfiguration config, CorsRegistry cors) {
         config.exposeIdsFor(Ingredient.class);
+        config.exposeIdsFor(Taco.class);
     }
 }

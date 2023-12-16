@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import tacos.Ingredient;
 //import tacos.Taco;
+import tacos.Taco;
 
 @SpringBootConfiguration
 @ComponentScan
@@ -138,16 +139,16 @@ public class RestExamples {
       tacoCloudClient.deleteIngredient(pico);
     };
   }
-//
-//  @Bean
-//  public CommandLineRunner traversonRecentTacos(TacoCloudClient tacoCloudClient) {
-//    return args -> {
-//      Iterable<Taco> recentTacos = tacoCloudClient.getRecentTacosWithTraverson();
-//      log.info("----------------------- GET RECENT TACOS WITH TRAVERSON -------------------------");
-//      for (Taco taco : recentTacos) {
-//        log.info("   -  " + taco);
-//      }
-//    };
-//  }
+
+  @Bean
+  public CommandLineRunner traversonRecentTacos(TacoCloudClient tacoCloudClient) {
+    return args -> {
+      Iterable<Taco> recentTacos = tacoCloudClient.getRecentTacosWithTraverson();
+      log.info("----------------------- GET RECENT TACOS WITH TRAVERSON -------------------------");
+      for (Taco taco : recentTacos) {
+        log.info("   -  " + taco);
+      }
+    };
+  }
 
 }
