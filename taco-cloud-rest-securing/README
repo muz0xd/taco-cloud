@@ -1,0 +1,8 @@
+There are three projects in this folder:
+
+ - tacocloud : This is the same Taco Cloud project as in the previous chapter,
+   altered to act as an OAuth2 resource server.
+ - auth-server : An OAuth2 authorization server based on Spring Authorization
+   Server (https://github.com/spring-projects-experimental/spring-authorization-server).
+ - tacocloud-admin : An admin client to consume the API exposed by tacocloud,
+   using tokens obtained from the auth-server.
