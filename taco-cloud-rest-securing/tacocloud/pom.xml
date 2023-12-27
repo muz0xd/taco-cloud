@@ -20,5 +20,6 @@
 	<modules>
 		<module>tacocloud-data</module>
 		<module>tacocloud-domain</module>
+		<module>taco-cloud</module>
 	</modules>
 </project>
