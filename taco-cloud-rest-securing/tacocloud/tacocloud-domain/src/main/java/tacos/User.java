@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.
@@ -19,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
+@Table(name="users") // user is reserved SQL word
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
 @RequiredArgsConstructor
 public class User implements UserDetails {
