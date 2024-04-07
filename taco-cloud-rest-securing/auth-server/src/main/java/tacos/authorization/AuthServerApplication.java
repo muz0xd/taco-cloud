@@ -19,14 +19,19 @@ public class AuthServerApplication {
 	@Bean
 	public ApplicationRunner dataLoader(UserRepository repo, PasswordEncoder encoder) {
 		
-		ApplicationRunner appRunner;
+//		ApplicationRunner appRunner;
+//		
+//		appRunner = args -> {
+//			repo.save(new User("habuma", encoder.encode("password"), "ROLE_ADMIN"));
+//			repo.save(new User("tacochef", encoder.encode("password"), "ROLE_ADMIN"));
+//		}; 
+//		
+//		return appRunner;
 		
-		appRunner = args -> {
+		return args ->{
 			repo.save(new User("habuma", encoder.encode("password"), "ROLE_ADMIN"));
 			repo.save(new User("tacochef", encoder.encode("password"), "ROLE_ADMIN"));
-		}; 
-		
-		return appRunner; 
+		};		
 	}
 
 }
