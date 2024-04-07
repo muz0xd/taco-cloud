@@ -12,19 +12,21 @@ import tacos.authorization.users.UserRepository;
 @SpringBootApplication
 public class AuthServerApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(AuthServerApplication.class, args);
-  }
+	public static void main(String[] args) {
+		SpringApplication.run(AuthServerApplication.class, args);
+	}
 
-  @Bean
-  public ApplicationRunner dataLoader(
-          UserRepository repo, PasswordEncoder encoder) {
-    return args -> {
-      repo.save(
-          new User("habuma", encoder.encode("password"), "ROLE_ADMIN"));
-      repo.save(
-          new User("tacochef", encoder.encode("password"), "ROLE_ADMIN"));
-    };
-  }
+	@Bean
+	public ApplicationRunner dataLoader(UserRepository repo, PasswordEncoder encoder) {
+		
+		ApplicationRunner appRunner;
+		
+		appRunner = args -> {
+			repo.save(new User("habuma", encoder.encode("password"), "ROLE_ADMIN"));
+			repo.save(new User("tacochef", encoder.encode("password"), "ROLE_ADMIN"));
+		}; 
+		
+		return appRunner; 
+	}
 
 }
