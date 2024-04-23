@@ -20,9 +20,9 @@ public class SecurityConfig {
 
 				.formLogin()
 
-		        .and()
-	            	.csrf().disable()
-	            	.headers().frameOptions().disable()
+//		        .and()
+//	            	.csrf().disable()
+//	            	.headers().frameOptions().disable()
 				.and().build();
 	}
 
