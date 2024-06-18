@@ -48,10 +48,11 @@ public class AuthorizationServerConfig {
       RegisteredClient.withId(UUID.randomUUID().toString())
         .clientId("taco-admin-client")
         .clientSecret(passwordEncoder.encode("secret"))
+        //.clientSecret("{noop}secret")
         .clientAuthenticationMethod(
                 ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
         .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-        .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+        //.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
         .redirectUri(
             "http://127.0.0.1:9090/login/oauth2/code/taco-admin-client")
         .scope("writeIngredients")
@@ -66,7 +67,7 @@ public class AuthorizationServerConfig {
 
 	@Bean
 	public ProviderSettings providerSettings() {
-		return new ProviderSettings().issuer("http://127.0.0.1:9000");
+		return new ProviderSettings().issuer("http://localhost:9000/");
 	}
 
 	@Bean

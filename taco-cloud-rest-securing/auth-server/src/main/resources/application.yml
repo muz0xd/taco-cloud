@@ -6,3 +6,15 @@ management:
     web:
       exposure:
         include: '*'
+
+     
+logging:
+  level: 
+    org:
+      zalando:
+        logbook: TRACE
+
+logbook:
+  format.style: curl
+  filter:
+    enabled: false
