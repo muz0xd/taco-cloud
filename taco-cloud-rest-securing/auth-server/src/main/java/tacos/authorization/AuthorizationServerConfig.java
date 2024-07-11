@@ -52,6 +52,8 @@ public class AuthorizationServerConfig {
         //.clientSecret("{noop}secret")
         .clientAuthenticationMethod(
                 ClientAuthenticationMethod.CLIENT_SECRET_POST)
+        .clientAuthenticationMethod(
+                ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
         .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
         .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
         .redirectUri(
