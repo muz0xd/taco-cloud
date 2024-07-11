@@ -19,16 +19,15 @@
 		</dependency>
 
 		<!-- Security and OAuth2 Dependencies -->
-		<!-- TODO: Figure out why 0.1.1 returns an error during authorization -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<!-- tag::securityDependencies[] -->
 		<dependency>
-			<groupId>org.springframework.security.experimental</groupId>
+			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-oauth2-authorization-server</artifactId>
-			<version>0.1.2</version>
+			<version>0.3.1</version>
 		</dependency>
 		<!-- end::securityDependencies[] -->
 

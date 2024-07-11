@@ -12,7 +12,9 @@ logging:
     org:
       zalando:
         logbook: TRACE
-
+#      springframework:
+#        security: trace
+       
 logbook:
   format:
     style: http

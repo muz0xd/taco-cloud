@@ -5,7 +5,7 @@ curl 127.0.0.1:9000/oauth2/token \
 -H"Content-type: application/x-www-form-urlencoded" \
 -d"grant_type=authorization_code" \
 -d"redirect_uri=http://127.0.0.1:9090/login/oauth2/code/taco-admin-client" \
--d"code=akXbpOH62GvQ_Ved_wtu5yAEqbUVuBWPaWMZNHSBucuobKQwTiHhpIm6eKJSBerjxjAkMQpFKf6nZQmW20jmUaW7xyvAMGLMUbh4S4oedoGT7AVitQuk1lPLwNxiM6-t" \
+-d"code=vIFtcKUCaSB0Qhpndqy-zLIP0M4figCKC0CVmhE-LkQAbU_Vd75IB7cCy1xcqNXd6E__dYiMfbhPBacBjDOYqSXBmjMLWlUnXnazKZWml0I9UW-6aLj1WPCkuR5uTNlK" \
 -d"client_id=taco-admin-client" \
--d"client_secret=secret" \
+-d"client_secret=secret"
 -u taco-admin-client:secret

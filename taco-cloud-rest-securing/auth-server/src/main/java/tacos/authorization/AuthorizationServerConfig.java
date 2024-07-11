@@ -22,6 +22,7 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
+import org.springframework.security.oauth2.server.authorization.config.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -50,7 +51,7 @@ public class AuthorizationServerConfig {
         .clientSecret(passwordEncoder.encode("secret"))
         //.clientSecret("{noop}secret")
         .clientAuthenticationMethod(
-                ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+                ClientAuthenticationMethod.CLIENT_SECRET_POST)
         .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
         .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
         .redirectUri(
@@ -58,8 +59,7 @@ public class AuthorizationServerConfig {
         .scope("writeIngredients")
         .scope("deleteIngredients")
         .scope(OidcScopes.OPENID)
-        .clientSettings(
-            clientSettings -> clientSettings.requireUserConsent(true))
+        .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
         .build();
     return new InMemoryRegisteredClientRepository(registeredClient);
   }
@@ -67,7 +67,7 @@ public class AuthorizationServerConfig {
 
 	@Bean
 	public ProviderSettings providerSettings() {
-		return new ProviderSettings().issuer("http://127.0.0.1:9000/");
+		return ProviderSettings.builder().issuer("http://127.0.0.1:9000/").build();
 	}
 
 	@Bean
