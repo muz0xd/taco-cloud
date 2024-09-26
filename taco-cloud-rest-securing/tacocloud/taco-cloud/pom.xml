@@ -29,6 +29,12 @@
 			<artifactId>tacocloud-api</artifactId>
 			<version>${tacocloud.version}</version>
 		</dependency>
+		<!-- Run against embedded H2 database by default -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<!-- Actuator and DevTools...just because -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
