@@ -1,15 +1,18 @@
 URL for testing auth-server:
 http://localhost:9000/oauth2/authorize?response_type=code&client_id=taco-admin-client&redirect_uri=http://127.0.0.1:9090/login/oauth2/code/taco-admin-client&scope=writeIngredients+deleteIngredients
 
+# to take acces token
+
 curl 127.0.0.1:9000/oauth2/token \
 -H"Content-type: application/x-www-form-urlencoded" \
 -d"grant_type=authorization_code" \
 -d"redirect_uri=http://127.0.0.1:9090/login/oauth2/code/taco-admin-client" \
--d"code=aGUpzV7Aipo4aU3ncK0eg-bgyIgG-8A7LMr2Ca3brpCHikGTw3hZTLUalLQrkPimu4fQzUZXnBjCyL9z78oNa7X-H2cJd8zKeh4_gUqT-_UrjX6XOyohhjAgtmiH0hUl" \
+-d"code=uaOE04dCa92rQfkEMdk9PFf4zXqXZCn2JuErz0GlNPtIyKrYNkHaJvW67ceGEroW85wqHh_MLp10nrQ-IllEYelXlraBIIBtJzmfmu-ltQN8MeKnNjrX-XZUCO3uzPMC" \
 -d"client_id=taco-admin-client" \
 -d"client_secret=secret"
 -u taco-admin-client:secret
 
+#to refresh access token
 curl localhost:9000/oauth2/token \
 -H"Content-type: application/x-www-form-urlencoded" \
 -d"grant_type=refresh_token&refresh_token=y_a50w82Pk7ib8tZxdlbLIhBLQamyQ6F3n1PpL0J74cJPU2GM8-url7nLMQpaLvJCI8cAhHMnpY1o2PDCmN_xOZnaIzVPxnKlrEEj0FUX6A_RwIK62nddGxPFmQLsnSS" \
