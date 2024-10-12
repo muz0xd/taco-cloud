@@ -1,4 +1,12 @@
+#add new ingredient
+
 curl localhost:8080/api/ingredients \
 -H"Content-type: application/json" \
 -d'{"id":"SHMP", "name":"Coconut Shrimp", "type":"PROTEIN"}' \
 -H"Authorization: Bearer eyJraWQiOiIzNmQzZWU1MS04NDQ4LTRjNjctYTliZi01NmU4NjhlZDZiOGEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ0YWNvY2hlZiIsImF1ZCI6InRhY28tYWRtaW4tY2xpZW50IiwibmJmIjoxNzI4NzIzMTIzLCJzY29wZSI6WyJkZWxldGVJbmdyZWRpZW50cyIsIndyaXRlSW5ncmVkaWVudHMiXSwiaXNzIjoiaHR0cDpcL1wvMTI3LjAuMC4xOjkwMDBcLyIsImV4cCI6MTcyODcyMzQyMywiaWF0IjoxNzI4NzIzMTIzfQ.x9Rtx0xfPGdOEknZHwswalMjmJFwCetKbIvgNvFmsRfMx0j37WSRZJffd-MWGpE5G7nYO-WtS8vvRbwDW0OqxAUThUVNrfcBLnkICd8zcgDhB31WiGid5q2kP800iA_YGjm-F-rtINjM9FRZToSsByBpongtY17ZcS8M441_UBrAZ58lc1Rs2YS2O4rdCSVdLbccH8yr7pa11IU4cvhcs9NZvte4J2hOGptxY7SRfav7NbJjjh4OGVBJMx6_AyRiYGRiJFJDHIlm7lc-RNEIZIZnA075tNttMLgZcLyzB9SmxD5BizW1wTjA5IwRHENhgqdmKdff4hcMpg9M9WwjAw"
+
+#refresh token
+curl localhost:9000/oauth2/token \
+-H"Content-type: application/x-www-form-urlencoded" \
+-d"grant_type=refresh_token&refresh_token=$refreshToken" \
+-u taco-admin-client:secret
