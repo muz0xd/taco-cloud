@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>sia</groupId>
-		<artifactId>taco-cloud-parent</artifactId>
+		<artifactId>taco-cloud-rest-secure</artifactId>
 		<version>0.0.8-SNAPSHOT</version>
 	</parent>
 	<artifactId>tacocloud-domain</artifactId>
