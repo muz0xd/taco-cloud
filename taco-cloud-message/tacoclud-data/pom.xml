@@ -7,8 +7,10 @@
 		<artifactId>taco-cloud-message</artifactId>
 		<version>0.0.9-SNAPSHOT</version>
 	</parent>
+	
 	<artifactId>tacoclud-data</artifactId>
-
+	<packaging>jar</packaging>
+	
 	<dependencies>
 		<!-- TacoCloud dependencies -->
 		<dependency>
