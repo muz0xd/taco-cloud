@@ -14,5 +14,6 @@
 	</parent>
 	<modules>
 		<module>tacocloud-domain</module>
+		<module>tacoclud-data</module>
 	</modules>
 </project>
