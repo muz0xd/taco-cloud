@@ -12,6 +12,9 @@
 		<version>2.7.4</version>
 		<relativePath />
 	</parent>
+    <properties>
+      <tacocloud.version>${project.version}</tacocloud.version>
+    </properties>
 	<modules>
 		<module>tacocloud-domain</module>
 		<module>tacoclud-data</module>
