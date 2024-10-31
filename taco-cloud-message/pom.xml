@@ -20,5 +20,6 @@
 		<module>tacocloud-data</module>
 		<module>tacocloud-security</module>
 		<module>tacocloud-messaging-jms</module>
+		<module>tacocloud-api</module>
 	</modules>
 </project>
