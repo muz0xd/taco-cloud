@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Entity
